@@ -1,0 +1,328 @@
+﻿<Window x:Class="ResumeDatabase.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ResumeDatabase"
+        mc:Ignorable="d"
+        Title="resumeDatabase" Height="550" Width="950" Closed="Window_Closed">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="365" Margin="10,117,0,0" VerticalAlignment="Top" Width="516" >
+            <TabItem  x:Name="tabItem_import" Header="import">
+                <Grid>
+                    <GroupBox Header="errorHandle" HorizontalAlignment="Left" Margin="10,123,0,-3" VerticalAlignment="Top" Height="213" Width="486" RenderTransformOrigin="0.502,0.191">
+                        <Grid>
+                            <ListView x:Name="listView_errorResume" Height="169" SelectionChanged="listView_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Width="454" Margin="10,10,0,0">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Content="insert" Tag="errorHandle" IsEnabled="{Binding isEnabled}" Click="buttonInsideListView_Click"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="logDate" DisplayMemberBinding="{Binding necessaryProp.logDate}" />
+                                        <GridViewColumn Header="name">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="name" Text="{Binding necessaryProp.name}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="brithday" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="brithday" Text="{Binding necessaryProp.brithday}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="gender" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="gender" Text="{Binding necessaryProp.gender}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="region" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="region" Text="{Binding necessaryProp.region}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="skill" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="skill" Text="{Binding necessaryProp.skill}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="phone" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="phone" Text="{Binding necessaryProp.phone}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="mail" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="mail" Text="{Binding necessaryProp.mail}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="overseaJob">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="overseaJob" Text="{Binding Path=optionProp.overseaJob}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="japanese">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="japanese" Text="{Binding Path=optionProp.japanese}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="intentionSalary" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="intentionSalary" Text="{Binding Path=optionProp.intentionSalary}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="intentionRegion" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="intentionRegion" Text="{Binding Path=optionProp.intentionRegion}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="filePath" DisplayMemberBinding="{Binding necessaryProp.filePath}"/>
+                                        <GridViewColumn Header="fileHash" DisplayMemberBinding="{Binding necessaryProp.fileHash}"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="groupBox_control" Header="control" Margin="10,10,10,215">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35*"/>
+                                <ColumnDefinition Width="439*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="textBox_resumeFolderPath" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="230" Margin="89.25,10,0,-15" Grid.Column="1"/>
+                            <Label Content="resumeFolderPath:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                            <Button x:Name="button_resumeFolderPathBrowser" Content="browser" HorizontalAlignment="Left" Margin="324.25,10,0,0" VerticalAlignment="Top" Width="50" Click="button_resumeFolderPathBrowser_Click" RenderTransformOrigin="2.177,0.409" Grid.Column="1"/>
+                            <Button x:Name="button_resumeFolderPathLoad" Content="load" HorizontalAlignment="Left" Margin="379.25,10,0,0" VerticalAlignment="Top" Width="50" Click="button_resumeFolderPathLoad_Click" RenderTransformOrigin="2.177,0.409" Grid.Column="1"/>
+                            <TextBlock x:Name="textBlock_unrecordedResumeFileNum" HorizontalAlignment="Left" Margin="324.25,47,0,-45" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Column="1"/>
+                            <GroupBox x:Name="groupBox_controlInvisible" Margin="10,41,272,0" Grid.ColumnSpan="2" >
+                                <Grid>
+                                    <Button x:Name="button_controlStart" Content="start" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Click="button_controlStart_Click"/>
+                                    <Button Name="button_controlPause" Content="pause" HorizontalAlignment="Left" Margin="65,10,0,0" VerticalAlignment="Top" Width="50" Click="button_controlPause_Click"/>
+                                    <Button Name="button_controlCancel" Content="cancel" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Width="50" Click="button_controlCancel_Click"/>
+
+                                </Grid>
+                            </GroupBox>
+                            <TextBox x:Name="textBox_dbLogDate" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" TextChanged="textBox_dbLogDate_TextChanged" VerticalAlignment="Top" Width="74" Margin="245.667,48,0,0" Grid.Column="1"/>
+                            <Label Content="logDate:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="190.667,46,0,0" Grid.Column="1"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="query">
+                <Grid>
+                    <GroupBox Header="parameter" Margin="10,0,10,219">
+                        <Grid x:Name="grid_queryParameter" >
+                            <CheckBox x:Name="checkBox_queryParameter_logDate" Tag="logDate" Content="logDate" HorizontalAlignment="Left" Margin="12,16,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="checkBox_queryParameter_name" Tag="name" Content="name" HorizontalAlignment="Left" Margin="12,44,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="checkBox_queryParameter_region" Tag="region" Content="region" HorizontalAlignment="Left" Margin="12,72,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="checkBox_queryParameter_skill" Tag="skill" Content="skill" HorizontalAlignment="Left" Margin="161,72,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="checkBox_queryParameter_phone" Tag="phone" Content="phone" HorizontalAlignment="Left" Margin="161,16,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="checkBox_queryParameter_mail" Tag="mail" Content="mail" HorizontalAlignment="Left" Margin="161,45,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="textBox_queryParameter_logDate" HorizontalAlignment="Left" Height="23" Margin="76,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
+                            <TextBox x:Name="textBox_queryParameter_name" HorizontalAlignment="Left" Height="23" Margin="76,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
+                            <TextBox x:Name="textBox_queryParameter_region" HorizontalAlignment="Left" Height="23" Margin="76,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
+                            <TextBox x:Name="textBox_queryParameter_skill" HorizontalAlignment="Left" Height="23" Margin="217,69,0,-1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FocusManager.GotFocus="textBox_queryParameter_skill_GotFocus" FocusManager.LostFocus="textBox_queryParameter_skill_LostFocus"/>
+                            <TextBox x:Name="textBox_queryParameter_phone" HorizontalAlignment="Left" Height="23" Margin="217,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
+                            <TextBox x:Name="textBox_queryParameter_mail" HorizontalAlignment="Left" Height="23" Margin="217,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
+                            <Button x:Name="button_query" Content="query" HorizontalAlignment="Left" Margin="389,69,0,0" VerticalAlignment="Top" Width="75" Click="button_query_Click"/>
+                            <CheckBox x:Name="checkBox_queryParameter_overseaJob" Tag="overseaJob" Content="overseaJob" HorizontalAlignment="Left" Margin="302,16,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="textBox_queryParameter_overseaJob" HorizontalAlignment="Left" Height="23" Margin="384,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
+
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="queryResult" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" Height="209" Width="486" RenderTransformOrigin="0.502,0.191">
+                        <Grid>
+                            <ListView x:Name="listView_queryResult" Height="166" SelectionChanged="listView_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Width="454" Margin="10,10,0,0">
+                                <ListView.View>
+                                    <GridView x:Name="gridView_queryResult">
+                                        <GridViewColumn Header="">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Content="insert" Tag="queryResult" IsEnabled="{Binding isEnabled}" Click="buttonInsideListView_Click"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="logDate" DisplayMemberBinding="{Binding necessaryProp.logDate}" />
+                                        <GridViewColumn Header="name">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="name" Text="{Binding necessaryProp.name}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="brithday" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="brithday" Text="{Binding necessaryProp.brithday}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="gender" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="gender" Text="{Binding necessaryProp.gender}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="region" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="region" Text="{Binding necessaryProp.region}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="skill" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="skill" Text="{Binding necessaryProp.skill}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="phone" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="phone" Text="{Binding necessaryProp.phone}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="mail" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="mail" Text="{Binding necessaryProp.mail}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="overseaJob">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="overseaJob" Text="{Binding Path=optionProp.overseaJob}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="japanese">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="japanese" Text="{Binding Path=optionProp.japanese}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="intentionSalary" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="intentionSalary" Text="{Binding Path=optionProp.intentionSalary}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="intentionRegion" >
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Tag="intentionRegion" Text="{Binding Path=optionProp.intentionRegion}" IsEnabled="{Binding isEnabled}" Margin="0">
+                                                    </TextBox>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="filePath" DisplayMemberBinding="{Binding necessaryProp.filePath}"/>
+                                        <GridViewColumn Header="fileHash" DisplayMemberBinding="{Binding necessaryProp.fileHash}"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </GroupBox>
+                    <Menu x:Name="menu_skill" HorizontalAlignment="Left" Height="220" Margin="274,114,0,0" VerticalAlignment="Top" Width="220">
+                        <Grid x:Name="grid_skill" />
+                    </Menu>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <StatusBar Margin="10,487,115,9.5" >
+            <StatusBarItem>
+                <TextBlock Name="textBlock_progressBarStatus" />
+            </StatusBarItem>
+        </StatusBar>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Height="27" Margin="835,487,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="2.09,3.534"/>
+        <GroupBox x:Name="groupBox1" Header="documentViewer" HorizontalAlignment="Left" Margin="531,10,0,0" VerticalAlignment="Top" Height="472" Width="404">
+            <Grid>
+                <DocumentViewer x:Name="documentViewer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="372" Height="429"/>
+                <WebBrowser x:Name="WebBrowser" HorizontalAlignment="Left" Height="429" Margin="10,10,0,0" VerticalAlignment="Top" Width="372"/>
+                <Button x:Name="button_saveAs" Content="saveAs" HorizontalAlignment="Left" Margin="341,10,0,0" VerticalAlignment="Top" Width="41" Click="button_saveAs_Click"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox" Header="database" Margin="10,10,419,411.5">
+            <Grid>
+                <Label x:Name="label" Content="server:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="textBox_dbServer" HorizontalAlignment="Left" Height="23" Margin="50,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="textBox_dbUser" HorizontalAlignment="Left" Height="23" Margin="50,44,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="textBox_dbPasswd" HorizontalAlignment="Left" Height="23" Margin="234,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="label1" Content="user:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label2" Content="passwd:" HorizontalAlignment="Left" Margin="178,41,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="button_dbConnect" Content="connect" HorizontalAlignment="Left" Margin="359,10,0,0" VerticalAlignment="Top" Width="50" Click="button_dbConnect_Click"/>
+                <TextBlock x:Name="textBlock_dbStatus" HorizontalAlignment="Left" Margin="359,46,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                <TextBox x:Name="textBox_dbDatabase" HorizontalAlignment="Left" Height="23" Margin="234,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="label2_Copy" Content="database:" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top"/>
+
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
